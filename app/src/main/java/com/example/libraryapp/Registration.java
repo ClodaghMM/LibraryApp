@@ -33,6 +33,7 @@ private FirebaseAuth firebaseAuth;
         inputEmail = (EditText) findViewById(R.id.emailinput);
         inputPassword = (EditText) findViewById(R.id.password_input);
         Signup_btn = (Button) findViewById(R.id.register);
+        return_btn = findViewById(R.id.back);
 
 //This gives us access to the instance of the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -43,7 +44,7 @@ private FirebaseAuth firebaseAuth;
         firebaseAuth = firebaseAuth.getInstance();
 
         //Code to go back to the main page.
-        return_btn.findViewById(R.id.back);
+
         return_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,8 +109,4 @@ private void registerUser() {
                 }
             });
 }
-
-
-
-
 }
