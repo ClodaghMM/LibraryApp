@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -21,10 +23,8 @@ public class Registration extends AppCompatActivity {
 private EditText inputEmail, inputPassword;
 private Button Signup_btn;
 private Button return_btn;
-private FirebaseAuth auth;
-private String emailHolder, passwordHolder;
 private FirebaseAuth firebaseAuth;
-boolean edittextstatus;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,6 @@ boolean edittextstatus;
         inputEmail = (EditText) findViewById(R.id.emailinput);
         inputPassword = (EditText) findViewById(R.id.password_input);
         Signup_btn = (Button) findViewById(R.id.register);
-
 
 //This gives us access to the instance of the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -53,8 +52,19 @@ boolean edittextstatus;
                 finish();
             }
         });
+
+        Signup_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                registerUser();
+            }
+        });
 }
 
+
+
+//Consider whether or not you still need this block of code.
 private void Registration() {
         firebaseAuth.createUserWithEmailAndPassword("user email here", "user password here")
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -63,14 +73,43 @@ private void Registration() {
                         if(task.isSuccessful())
                         {
                         }
-                        else {}}});
+                        else {}}}); }
+                        //Consider whether you need the block of code above.
 
-
-}
-
-private void reigisterUser() {
+private void registerUser() {
         String email = inputEmail.getText().toString().trim();
         String password = inputPassword.getText().toString().trim();
+
+        if(TextUtils.isEmpty(email)) {
+
+        Toast.makeText(this, "Please enter email", Toast.LENGTH_LONG).show();
+        return;
+    }
+
+    if(TextUtils.isEmpty(password)) {
+
+        Toast.makeText(this, "Please enter password", Toast.LENGTH_LONG).show();
+        return;
+    }
+
+    //creating a new user
+    firebaseAuth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if(task.isSuccessful())
+                    {
+                        Toast.makeText(Registration.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
+                    }
+
+                    else {
+                        Toast.makeText(Registration.this,"Registration Error",Toast.LENGTH_LONG).show();
+;                    }
+                }
+            });
 }
+
+
+
 
 }
