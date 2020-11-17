@@ -1,5 +1,6 @@
 package com.example.libraryapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.database.DatabaseReference;
@@ -26,6 +30,10 @@ boolean edittextstatus;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
+        inputEmail = (EditText) findViewById(R.id.emailinput);
+        inputPassword = (EditText) findViewById(R.id.password_input);
+        Signup_btn = (Button) findViewById(R.id.register);
+
 
 //This gives us access to the instance of the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -45,9 +53,24 @@ boolean edittextstatus;
                 finish();
             }
         });
+}
+
+private void Registration() {
+        firebaseAuth.createUserWithEmailAndPassword("user email here", "user password here")
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful())
+                        {
+                        }
+                        else {}}});
 
 
+}
 
+private void reigisterUser() {
+        String email = inputEmail.getText().toString().trim();
+        String password = inputPassword.getText().toString().trim();
+}
 
-
-}}
+}
