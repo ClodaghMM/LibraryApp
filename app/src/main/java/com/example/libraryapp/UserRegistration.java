@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class Registration extends AppCompatActivity {
+public class UserRegistration extends AppCompatActivity {
 private EditText inputEmail, inputPassword;
 private Button Signup_btn;
 private Button return_btn;
@@ -48,7 +48,7 @@ private FirebaseAuth firebaseAuth;
         return_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Registration.this, MainActivity.class);
+                Intent intent = new Intent(UserRegistration.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -100,11 +100,11 @@ private void registerUser() {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(task.isSuccessful())
                     {
-                        Toast.makeText(Registration.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UserRegistration.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
                     }
 
                     else {
-                        Toast.makeText(Registration.this,"Registration Error",Toast.LENGTH_LONG).show();
+                        Toast.makeText(UserRegistration.this,"Registration Error",Toast.LENGTH_LONG).show();
 ;                    }
                 }
             });
