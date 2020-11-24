@@ -12,18 +12,43 @@
         tools:layout_editor_absoluteX="112dp"
         tools:layout_editor_absoluteY="67dp">
 
-        <Button
-            android:id="@+id/login_btn"
+
+        <TextView
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="161dp"
-            android:layout_marginLeft="161dp"
-            android:layout_marginTop="596dp"
+            android:layout_marginStart="160dp"
+            android:layout_marginLeft="160dp"
+            android:layout_marginTop="100dp"
+            android:text="Log In"
+            android:textSize="30dp" />
+
+        <Button
+            android:id="@+id/enter_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="253dp"
+            android:layout_marginLeft="253dp"
+            android:layout_marginTop="454dp"
             android:text="Log IN" />
 
+        <Button
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="35dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="454dp"
+            android:text="Return to main screen" />
 
         <TextView
             android:id="@+id/email_title"

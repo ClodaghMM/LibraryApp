@@ -18,21 +18,33 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Login extends AppCompatActivity {
 
-    private Button login_btn;
+    private Button log_btn;
     private EditText emailAddress_login;
     private EditText password_login;
+    private Button back_btn;
     FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-    login_btn.findViewById(R.id.login_btn);
-    emailAddress_login.findViewById(R.id.email_Input);
-    password_login.findViewById(R.id.password_login);
+
+    log_btn = (Button)findViewById(R.id.enter_btn);
+    emailAddress_login = (EditText)findViewById(R.id.email_Input);
+    password_login = (EditText)findViewById(R.id.password_login);
+    back_btn = (Button)findViewById(R.id.back_btn);
+
+    back_btn.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent (Login.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+    });
 
     auth = FirebaseAuth.getInstance();
-    login_btn.setOnClickListener(new View.OnClickListener() {
+    log_btn.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             String email = emailAddress_login.getText().toString();
