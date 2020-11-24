@@ -12,21 +12,41 @@
         tools:layout_editor_absoluteX="112dp"
         tools:layout_editor_absoluteY="67dp">
 
-
-        <TextView
-            android:id="@+id/textView"
+        <Button
+            android:id="@+id/catalogue_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="193dp"
-            android:layout_marginEnd="156dp"
-            android:layout_marginRight="156dp"
-            android:text="YEET"
-            android:textSize="50dp"
-            tools:layout_editor_absoluteX="149dp"
-            tools:layout_editor_absoluteY="221dp" />
+            android:layout_marginTop="275dp"
+            android:layout_marginEnd="232dp"
+            android:layout_marginRight="232dp"
+            android:text="View Catalogue" />
+
+        <Button
+            android:id="@+id/view_accountbtn"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="275dp"
+            android:layout_marginEnd="38dp"
+            android:layout_marginRight="38dp"
+            android:text="View Account" />
+
+        <Button
+            android:id="@+id/log_out"
+            android:layout_width="142dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="134dp"
+            android:layout_marginLeft="134dp"
+            android:layout_marginBottom="189dp"
+            android:text="Log Out"/>
 
     </RelativeLayout>
 
