@@ -80,9 +80,9 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="317dp"
+            android:layout_marginStart="39dp"
+            android:layout_marginLeft="39dp"
+            android:layout_marginTop="347dp"
             android:text="Password" />
 
         <EditText
@@ -92,9 +92,9 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="317dp"
-            android:layout_marginEnd="38dp"
-            android:layout_marginRight="38dp" />
+            android:layout_marginTop="340dp"
+            android:layout_marginEnd="37dp"
+            android:layout_marginRight="37dp" />
 
 
     </RelativeLayout>

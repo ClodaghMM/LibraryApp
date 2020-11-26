@@ -16,14 +16,10 @@
         <activity android:name=".ViewCatalogue" />
         <activity android:name=".MainMenu" />
         <activity android:name=".Login" />
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:label="@string/title_activity_login" />
         <activity android:name=".UserRegistration" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
