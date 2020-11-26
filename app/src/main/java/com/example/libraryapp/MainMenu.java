@@ -34,7 +34,7 @@ private Button log_out;
         catalogue_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (MainMenu.this, Catalogue.class);
+                Intent intent = new Intent (MainMenu.this, ViewCatalogue.class);
                 startActivity(intent);
                 finish();
             }

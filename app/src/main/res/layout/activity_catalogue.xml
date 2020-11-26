@@ -4,11 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Catalogue">
+    tools:context=".ViewCatalogue">
 
     <RelativeLayout
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
+        android:layout_width="444dp"
+        android:layout_height="727dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView"
@@ -17,13 +20,49 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="184dp"
-            android:layout_marginLeft="184dp"
-            android:layout_marginTop="229dp"
-            android:text="Hello-TEST"
+            android:layout_marginStart="80dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="32dp"
+            android:text="Library Catalogue"
+            android:textSize="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="164dp" />
+
+        <ListView
+            android:id="@+id/cataogue_list"
+            android:layout_width="318dp"
+            android:layout_height="412dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="104dp"
+            android:layout_marginEnd="77dp"
+            android:layout_marginRight="77dp" />
+
+        <Button
+            android:id="@+id/add_book_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="51dp"
+            android:layout_marginLeft="51dp"
+            android:layout_marginBottom="116dp"
+            android:text="Add Book" />
+
+        <Button
+            android:id="@+id/return_to_main_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="190dp"
+            android:layout_marginLeft="190dp"
+            android:layout_marginBottom="114dp"
+            android:text="Return to Main Menu" />
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
