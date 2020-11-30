@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class AddBook extends AppCompatActivity {
@@ -19,6 +20,7 @@ public class AddBook extends AppCompatActivity {
     private Button addBook_btn;
     private Button return_to_catalogue_btn;
     FirebaseDatabase firebaseDatabase;
+    DatabaseReference Ref;
 
 
     @Override
@@ -40,7 +42,7 @@ public class AddBook extends AppCompatActivity {
             }
         });
 
-        firebaseDatabase.getInstance().getReference().child("Book");
+
 
         addBook_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,14 +51,23 @@ public class AddBook extends AppCompatActivity {
             }
         }); }
 
-            private void AddBookToCatalogue() { //Change this to add the datasnapshot
+            private void AddBookToCatalogue() {
+
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+
+
+
             String title = BookName.getText().toString();
             String author = Author.getText().toString();
             Book book = new Book(title, author);
             //Add to the database.
-            assert title != null; //Not sure about this line, enquire about it.
-            firebaseDatabase.getReference().child("Book");
+                Ref = firebaseDatabase.getInstance().getReference().child("Book");
+                book.setAuthor(author);
+                book.setTitle(title);
+                Ref.push().setValue(book);
+            //assert title != null; //Not sure about this line, enquire about it.
             Toast.makeText(AddBook.this,"Book Added!",Toast.LENGTH_SHORT).show();
+
     }
 
 
