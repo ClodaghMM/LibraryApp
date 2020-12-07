@@ -8,10 +8,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.EventListener;
 
 public class AddBook extends AppCompatActivity {
 
@@ -19,8 +25,7 @@ public class AddBook extends AppCompatActivity {
     private EditText Author;
     private Button addBook_btn;
     private Button return_to_catalogue_btn;
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference Ref;
+    DatabaseReference databaseReference;
 
 
     @Override
@@ -39,6 +44,19 @@ public class AddBook extends AppCompatActivity {
                 Intent intent = new Intent(AddBook.this, ViewCatalogue.class);
                 startActivity(intent);
                 finish();
+
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
             }
         });
 
@@ -53,21 +71,13 @@ public class AddBook extends AppCompatActivity {
 
             private void AddBookToCatalogue() {
 
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        String title = BookName.getText().toString();
+        String author = Author.getText().toString();
 
-
-
-            String title = BookName.getText().toString();
-            String author = Author.getText().toString();
-            Book book = new Book(title, author);
-            //Add to the database.
-                Ref = firebaseDatabase.getInstance().getReference().child("Book");
-                book.setAuthor(author);
-                book.setTitle(title);
-                Ref.push().setValue(book);
-            //assert title != null; //Not sure about this line, enquire about it.
-            Toast.makeText(AddBook.this,"Book Added!",Toast.LENGTH_SHORT).show();
-
+        Book book = new Book(title, author);
+        FirebaseDatabase databaseInstance = FirebaseDatabase.getInstance();
+        DatabaseReference bookNode = databaseInstance.getReference("Book");
+        bookNode.setValue(book);
     }
 
 
