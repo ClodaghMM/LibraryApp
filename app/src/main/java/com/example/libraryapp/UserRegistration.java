@@ -38,7 +38,7 @@ private FirebaseAuth firebaseAuth;
 //This gives us access to the instance of the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-      //  DatabaseReference myRef = database.getReference();
+        //  DatabaseReference myRef = database.getReference();
 
         //Initialises a new firebase object
         firebaseAuth = firebaseAuth.getInstance();
@@ -54,59 +54,4 @@ private FirebaseAuth firebaseAuth;
             }
         });
 
-        Signup_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                registerUser();
-            }
-        });
-}
-
-
-
-//Consider whether or not you still need this block of code.
-private void Registration() {
-        firebaseAuth.createUserWithEmailAndPassword("user email here", "user password here")
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful())
-                        {
-                        }
-                        else {}}}); }
-                        //Consider whether you need the block of code above.
-
-private void registerUser() {
-        String email = inputEmail.getText().toString().trim();
-        String password = inputPassword.getText().toString().trim();
-
-        if(TextUtils.isEmpty(email)) {
-
-        Toast.makeText(this, "Please enter email", Toast.LENGTH_LONG).show();
-        return;
-    }
-
-    if(TextUtils.isEmpty(password)) {
-
-        Toast.makeText(this, "Please enter password", Toast.LENGTH_LONG).show();
-        return;
-    }
-
-    //creating a new user
-    firebaseAuth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if(task.isSuccessful())
-                    {
-                        Toast.makeText(UserRegistration.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
-                    }
-
-                    else {
-                        Toast.makeText(UserRegistration.this,"Registration Error",Toast.LENGTH_LONG).show();
-;                    }
-                }
-            });
-}
-}
+    }}

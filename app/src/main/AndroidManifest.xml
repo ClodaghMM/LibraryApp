@@ -15,9 +15,6 @@
         <activity android:name=".Catalogue" />
         <activity android:name=".MainMenu" />
         <activity android:name=".Login" />
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:label="@string/title_activity_login" />
         <activity android:name=".UserRegistration" />
         <activity android:name=".MainActivity">
             <intent-filter>
